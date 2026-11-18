@@ -1,4 +1,4 @@
-![Codex Chat Manager](assets/banner.png)
+![Codex Chat Manager](assets/banner-rounded.png)
 
 [English](#english) · [Русский](#русский)
 
