@@ -1,0 +1,36 @@
+[package]
+name = "codex-chat-manager"
+version = "2.0.0"
+edition = "2021"
+description = "Локальный менеджер чатов Codex для Windows"
+
+[[bin]]
+name = "CodexChatManager"
+path = "src/main.rs"
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std"] }
+glob = "0.3"
+regex = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+unicode-casefold = "0.2"
+windows-sys = { version = "0.59", features = [
+    "Win32_Foundation", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_Graphics_GdiPlus",
+    "Win32_Security", "Win32_Storage_FileSystem", "Win32_System_Console", "Win32_System_LibraryLoader",
+    "Win32_System_Registry",
+    "Win32_System_SystemInformation", "Win32_System_Threading", "Win32_System_Time",
+    "Win32_UI_Controls", "Win32_UI_Controls_Dialogs", "Win32_UI_HiDpi",
+    "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_WindowsAndMessaging",
+] }
+
+[build-dependencies]
+embed-resource = "3.0"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+strip = true
